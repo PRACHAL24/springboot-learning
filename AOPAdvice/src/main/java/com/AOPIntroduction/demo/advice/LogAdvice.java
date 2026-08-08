@@ -27,13 +27,13 @@ public class LogAdvice {
 //        System.out.println("after method throwing error.....");
 //    }
 //
-//    @After("execution(* com.AOPIntroduction.demo.service.StudentService.createstudent(..))")
+//    @After("execution(* com.AOPIntroduction.demo.service.*.*(..))")
 //    public void aftermethod(){
 //        System.out.println("after method calling even if there any error or succesfull message.....");
 //    }
 
 
-    @Around("execution(* com.AOPIntroduction.demo.service.StudentService.createstudent(..))")
+    @Around(@Within)
     public Object aroundmethod(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         System.out.println("before calling the method");
         try {
