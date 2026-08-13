@@ -2,6 +2,7 @@ package com.Hibernatedemo.Hibernatedemo.service;
 
 import com.Hibernatedemo.Hibernatedemo.entity.Student;
 import com.Hibernatedemo.Hibernatedemo.repository.StudentRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 
@@ -13,26 +14,27 @@ public class StudentService {
     public StudentService(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
-
+@Transactional
     public Student createStudent(Student student){
-      Student student1= studentRepository.save(student);
-      return student1;
-    }
+        return  studentRepository.save(student);
 
+    }
+@Transactional
     public Student getStudent(int id){
-       Student student= studentRepository.get(id);
-       return student;
-    }
+        return  studentRepository.get(id);
 
+    }
+@Transactional
     public String deleteStudent(int id){
          studentRepository.remove(id);
         return "Student deleted successfulyy..";
     }
+    @Transactional
     public Student updateStudent(Student student,int id){
   Student student1= getStudent(id);
   student1.setName(student.getName());
-  student1.setEmail(student.getEmail());
-  student1.setSubject(student.getSubject());
+//  student1.setEmail(student.getEmail());
+//  student1.setSubject(student.getSubject());
   return student1;
     }
 }

@@ -3,6 +3,8 @@ package com.Hibernatedemo.Hibernatedemo.repository;
 import com.Hibernatedemo.Hibernatedemo.entity.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Transient;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Repository;
 
 @Repository
