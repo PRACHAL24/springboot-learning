@@ -1,0 +1,52 @@
+package com.JPA.JPACascading.Entity;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.engine.internal.Cascade;
+
+@Getter
+@Setter
+@Entity
+public class Student {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    private Integer id;
+    private String name;
+    @ManyToOne
+
+    @JoinColumn(name = "dept_id")
+    private Department department;
+
+    public Student(Integer id, String name, Department department) {
+        this.id = id;
+        this.name = name;
+        this.department = department;
+    }
+public Student(){
+
+}
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+}
